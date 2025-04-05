@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.gherex.mylogin.gui.LoginController" spacing="20" alignment="CENTER_LEFT"
+      style="-fx-padding: 20; -fx-background-color: #dedede; -fx-font-size: 16px;">
+    <Label text="Login" alignment="TOP_LEFT"
+           style="-fx-font-weight: bold; -fx-font-size: 28px; -fx-padding: 0 0 15 0;">
+        <font>
+            <Font name="System Bold" size="28"/>
+        </font>
+    </Label>
+    <VBox spacing="15" style="-fx-padding: 0 0 0 10;">
+        <VBox spacing="5">
+            <Label text="Username:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="usernameField" promptText="Enter a username"
+                       style="-fx-pref-width: 250px;"/>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="Password:" style="-fx-font-weight: bold;"/>
+            <PasswordField fx:id="passwordField" promptText="Enter a password"
+                           style="-fx-pref-width: 250px;"/>
+        </VBox>
+        <HBox spacing="20" alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+            <Button fx:id="loginButton" text="Login" onAction="#handleLogin"
+                    style="-fx-base: #4CAF50; -fx-text-fill: white; -fx-pref-width: 100px; -fx-cursor: hand; -fx-font-weight: bold;"/>
+            <Button fx:id="clearButton" text="Clean" onAction="#handleClean"
+                    style="-fx-base: #f44336; -fx-text-fill: white; -fx-pref-width: 100px; -fx-cursor: hand; -fx-font-weight: bold;"/>
+        </HBox>
+        <VBox spacing="5" style="-fx-padding: 20 0 0 0;">
+            <Label text="Registro de eventos:" style="-fx-font-weight: bold;"/>
+            <TextArea fx:id="textAreaField" editable="false" wrapText="true"
+                      style="
+              -fx-control-inner-background: #eeeeee;
+              -fx-font-family: Consolas;
+              -fx-font-size: 20px;
+              -fx-text-fill: black;
+              -fx-focus-color: transparent;
+              -fx-faint-focus-color: transparent;
+              -fx-highlight-fill: #eeeeee;
+              -fx-highlight-text-fill: black;
+              -fx-background-insets: 0;
+              -fx-background-color: transparent, white, transparent, white;
+          "
+                      prefHeight="150" prefWidth="300">
+            </TextArea>
+        </VBox>
+    </VBox>
+</VBox>
