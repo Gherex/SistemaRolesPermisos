@@ -48,4 +48,12 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
 }

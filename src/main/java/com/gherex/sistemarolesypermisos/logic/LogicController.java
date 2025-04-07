@@ -7,6 +7,7 @@ import java.util.List;
 public class LogicController {
 
     PersistenceController persisControl;
+    String username;
 
     public LogicController() {
         persisControl = new PersistenceController();
@@ -17,13 +18,22 @@ public class LogicController {
         for (User user : userList) {
             if (user.getUsername().equals(username)) {
                 if (user.getPassword().equals(password)) {
-                    return "Usuario y contraseña correctos. Bienvenido/a!";
-                } else {
-                    return "Contraseña incorrecta.";
+                    return user.getRol().getRolName();
                 }
             }
         }
-        return "Usuario no encontrado.";
+        return null;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public List<User> getAllUsers() {
+        return persisControl.getUsers();
+    }
 }

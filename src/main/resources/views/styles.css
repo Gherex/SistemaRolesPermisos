@@ -1,0 +1,6 @@
+.btn-panel {
+    -fx-min-height: 50px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}

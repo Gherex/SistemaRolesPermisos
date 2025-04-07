@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 import java.util.List;
 
-public class AdminPanelController {
+public class UserPanelController {
 
     @FXML
     private Label userLabel;
@@ -58,15 +58,6 @@ public class AdminPanelController {
         List<User> userList = logicControl.getAllUsers();
         ObservableList<User> observableUserList = FXCollections.observableArrayList(userList);
         userTable.setItems(observableUserList);
-    }
-
-    public void createUser(ActionEvent actionEvent) {
-    }
-
-    public void editUser(ActionEvent actionEvent) {
-    }
-
-    public void deleteUser(ActionEvent actionEvent) {
     }
 
     public void reloadTable() {

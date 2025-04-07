@@ -5,7 +5,7 @@
 <?import java.net.URL?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.gherex.sistemarolesypermisos.gui.AdminPanelController"
+            fx:controller="com.gherex.sistemarolesypermisos.gui.UserPanelController"
             prefWidth="800" prefHeight="600" style="-fx-padding: 30px">
     <stylesheets>
         <URL value="@styles.css"/>
@@ -26,16 +26,9 @@
                 <TableColumn fx:id="colRoleId" text="Rol" prefWidth="100"/>
             </columns>
         </TableView>
-
     </center>
     <right>
         <VBox spacing="30" prefWidth="200" prefHeight="Infinity" alignment="CENTER" style="-fx-padding: 0 0 0 20px">
-            <Button text="Crear nuevo usuario" onAction="#createUser" styleClass="btn-panel" VBox.vgrow="ALWAYS"
-                    maxWidth="Infinity"/>
-            <Button text="Editar usuario" onAction="#editUser" styleClass="btn-panel" VBox.vgrow="ALWAYS"
-                    maxWidth="Infinity"/>
-            <Button text="Borrar usuario" onAction="#deleteUser" styleClass="btn-panel" VBox.vgrow="ALWAYS"
-                    maxWidth="Infinity"/>
             <Button text="Recargar tabla" onAction="#reloadTable" styleClass="btn-panel" VBox.vgrow="ALWAYS"
                     maxWidth="Infinity"/>
             <Button text="Salir" onAction="#quit" styleClass="btn-panel" VBox.vgrow="ALWAYS" maxWidth="Infinity"/>

@@ -5,8 +5,8 @@
 <?import javafx.scene.text.*?>
 
 <VBox xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.gherex.sistemarolesypermisos.gui.LoginController" spacing="20" alignment="CENTER_LEFT"
-      style="-fx-padding: 20; -fx-background-color: #dedede; -fx-font-size: 16px;">
+      fx:controller="com.gherex.sistemarolesypermisos.gui.LoginController" prefWidth="350" prefHeight="600"
+      spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 20; -fx-background-color: #dedede; -fx-font-size: 16px;">
     <Label text="Login" alignment="TOP_LEFT"
            style="-fx-font-weight: bold; -fx-font-size: 28px; -fx-padding: 0 0 15 0;">
         <font>
