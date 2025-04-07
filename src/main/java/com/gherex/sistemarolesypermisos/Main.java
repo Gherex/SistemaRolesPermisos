@@ -1,4 +1,4 @@
-package com.gherex.mylogin;
+package com.gherex.sistemarolesypermisos;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,11 +12,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         // Carga el archivo FXML desde resources
         Parent root = FXMLLoader.load(
-                getClass().getResource("/views/Login.fxml")
-        );
+                getClass().getResource("/views/AdminPanel.fxml")
+        ); // "/views/Login.fxml"
 
-        primaryStage.setTitle("Login");
-        primaryStage.setScene(new Scene(root, 350, 600));
+        primaryStage.setTitle("AdminPanel");
+        primaryStage.setScene(new Scene(root, 400, 600)); // 350 600
         primaryStage.show();
     }
 

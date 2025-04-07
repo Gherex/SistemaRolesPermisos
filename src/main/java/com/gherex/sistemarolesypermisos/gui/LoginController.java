@@ -1,6 +1,6 @@
-package com.gherex.mylogin.gui;
+package com.gherex.sistemarolesypermisos.gui;
 
-import com.gherex.mylogin.logic.LogicController;
+import com.gherex.sistemarolesypermisos.logic.LogicController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;

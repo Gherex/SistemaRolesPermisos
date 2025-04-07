@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gherex.sistemarolesypermisos.gui.AdminPanelController"
+>
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Sistema Administrador de Usuarios" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label fx:id="labelUsuario" text="Bienvenido, Usuario" style="-fx-font-size: 14px; -fx-text-fill: gray;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tablaUsuarios" prefHeight="300" prefWidth="500" BorderPane.alignment="CENTER"/>
+    </center>
+
+    <right>
+        <VBox spacing="10">
+            <Button text="Create New User" onAction="#createUser"/>
+            <Button text="Edit User" onAction="#editUser"/>
+            <Button text="Delete User" onAction="#deleteUser"/>
+            <Button text="Reload Table" onAction="#reloadTable"/>
+            <Button text="Quit" onAction="#quit"/>
+        </VBox>
+    </right>
+</BorderPane>

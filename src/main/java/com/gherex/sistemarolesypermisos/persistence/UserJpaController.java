@@ -1,27 +1,18 @@
-package com.gherex.mylogin.persistence;
 
-import com.gherex.mylogin.logic.User;
+package com.gherex.sistemarolesypermisos.persistence;
+
+import com.gherex.sistemarolesypermisos.logic.User;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 
 import java.util.List;
 
+import static com.gherex.sistemarolesypermisos.persistence.JpaUtil.getEntityManager;
+
 public class UserJpaController {
-    private final EntityManagerFactory emf;
-
-    public UserJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("myloginPU");
-    }
-
-    public EntityManager getEntityManager() {
-        return emf.createEntityManager();
-    }
 
     // =========== MÉTODOS CRUD =========== //
 
-    // CREATE (Guardar un nuevo usuario)
     public void create(User user) {
         EntityManager em = null;
         try {
@@ -36,17 +27,6 @@ public class UserJpaController {
         }
     }
 
-    // READ (Obtener un usuario por ID)
-    public User findUser(Long id) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(User.class, id);
-        } finally {
-            em.close();
-        }
-    }
-
-    // UPDATE (Editar un usuario existente)
     public void update(User user) {
         EntityManager em = null;
         try {
@@ -61,7 +41,6 @@ public class UserJpaController {
         }
     }
 
-    // DELETE (Eliminar un usuario por ID)
     public void delete(Long id) {
         EntityManager em = null;
         try {
@@ -79,29 +58,23 @@ public class UserJpaController {
         }
     }
 
-    // Obtener todos los usuarios (SELECT * FROM User)
+    public User findUser(Long id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(User.class, id);
+        } finally {
+            em.close();
+        }
+    }
+
     public List<User> findAllUsers() {
         EntityManager em = getEntityManager();
         try {
-            Query query = em.createQuery("SELECT u FROM User u");
+            Query query = em.createQuery("SELECT e FROM User e");
             return query.getResultList();
         } finally {
             em.close();
         }
     }
-
-    /* Buscar usuarios por un campo específico (ej: email)
-
-    public List<User> findUsersByEmail(String email) {
-        EntityManager em = getEntityManager();
-        try {
-            Query query = em.createQuery("SELECT u FROM User u WHERE u.email = :email");
-            query.setParameter("email", email);
-            return query.getResultList();
-        } finally {
-            em.close();
-        }
-    }
-    */
 
 }

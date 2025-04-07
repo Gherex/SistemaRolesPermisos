@@ -1,16 +1,20 @@
-package com.gherex.mylogin.logic;
+package com.gherex.sistemarolesypermisos.logic;
 
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     @Basic
     private String username;
     private String password;
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
 
     public User() {
     }

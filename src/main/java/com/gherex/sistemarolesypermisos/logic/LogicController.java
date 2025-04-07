@@ -1,7 +1,6 @@
-package com.gherex.mylogin.logic;
+package com.gherex.sistemarolesypermisos.logic;
 
-import com.gherex.mylogin.persistence.PersistenceController;
-import com.mysql.cj.log.Log;
+import com.gherex.sistemarolesypermisos.persistence.PersistenceController;
 
 import java.util.List;
 
