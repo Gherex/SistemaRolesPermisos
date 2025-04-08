@@ -14,7 +14,19 @@ public class PersistenceController {
         return userJpaC.findAllUsers();
     }
 
-    public List<Rol> getRols() {
-        return rolJpaC.findAllRoles();
+    public List<Rol> getRoles() {
+        return rolJpaC.getAllRoles();
+    }
+
+    public void createUser(User newUser) {
+        userJpaC.create(newUser);
+    }
+
+    public void deleteUser(int id) {
+        userJpaC.delete(id);
+    }
+
+    public void editUser(User editedUser) {
+        userJpaC.update(editedUser);
     }
 }

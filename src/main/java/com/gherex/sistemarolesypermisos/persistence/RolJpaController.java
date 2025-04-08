@@ -47,7 +47,7 @@ public class RolJpaController {
         }
     }
 
-    public List<Rol> findAllRoles() {
+    public List<Rol> getAllRoles() {
         EntityManager em = getEntityManager();
         try {
             Query query = em.createQuery("SELECT e FROM Rol e");

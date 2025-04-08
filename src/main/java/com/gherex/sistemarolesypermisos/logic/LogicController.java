@@ -36,4 +36,20 @@ public class LogicController {
     public List<User> getAllUsers() {
         return persisControl.getUsers();
     }
+
+    public List<Rol> getAllRoles() {
+        return persisControl.getRoles();
+    }
+
+    public void createUser(User newUser) {
+        persisControl.createUser(newUser);
+    }
+
+    public void deleteUser(int id) {
+        persisControl.deleteUser(id);
+    }
+
+    public void editUser(User editedUser) {
+        persisControl.editUser(editedUser);
+    }
 }

@@ -7,14 +7,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class AdminPanelController {
 
@@ -60,14 +63,76 @@ public class AdminPanelController {
         userTable.setItems(observableUserList);
     }
 
-    public void createUser(ActionEvent actionEvent) {
+    public void createUser() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/LoadNewUser.fxml"));
+        Stage stage = new Stage();
+        Parent root;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        LoadNewUserController loadNewUserController = loader.getController();
+        loadNewUserController.setLogicControl(logicControl);
+        stage.setScene(new Scene(root));
+        stage.setTitle("Alta de Usuarios");
+        stage.show();
     }
 
-    public void editUser(ActionEvent actionEvent) {
+    public void editUser() {
+        User selectedUser = userTable.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/modifyUser.fxml"));
+        Stage stage = new Stage();
+        Parent root;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        ModifyUserController modifyUserController = loader.getController();
+        modifyUserController.setLogicControl(logicControl);
+        modifyUserController.setUser(selectedUser);
+        modifyUserController.initData();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Modificación de usuario");
+        stage.show();
     }
 
-    public void deleteUser(ActionEvent actionEvent) {
+    public void deleteUser() {
+
+        if (userTable.getItems().isEmpty()) {
+            showAlert("La tabla está vacía.");
+            return;
+        }
+        // Obtiene el usuario seleccionado
+        User selectedUser = userTable.getSelectionModel().getSelectedItem();
+
+        if (selectedUser == null) {
+            showAlert("Ningún usuario seleccionado.");
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmar eliminación");
+        alert.setHeaderText("¿Estás seguro que deseas eliminar al usuario?");
+        alert.setContentText("Usuario: " + selectedUser.getUsername());
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            logicControl.deleteUser(selectedUser.getId());
+            loadTable();
+        }
+
+        showAlert("Usuario eliminado correctamente.");
+        loadTable();
     }
+
+    private void showAlert(String msg) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(msg);
+        alert.showAndWait();
+    }
+
 
     public void reloadTable() {
         loadTable();

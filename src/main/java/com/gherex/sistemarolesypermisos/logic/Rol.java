@@ -9,7 +9,7 @@ import java.util.List;
 public class Rol {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Basic
     private String rolName;
@@ -20,8 +20,7 @@ public class Rol {
     public Rol() {
     }
 
-    public Rol(int id, String rolName, String description, List<User> userList) {
-        this.id = id;
+    public Rol(String rolName, String description, List<User> userList) {
         this.rolName = rolName;
         this.description = description;
         this.userList = userList;
@@ -58,4 +57,10 @@ public class Rol {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return rolName;
+    }
+
 }

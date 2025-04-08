@@ -41,7 +41,7 @@ public class UserJpaController {
         }
     }
 
-    public void delete(Long id) {
+    public void delete(int id) {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -58,7 +58,7 @@ public class UserJpaController {
         }
     }
 
-    public User findUser(Long id) {
+    public User findUser(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(User.class, id);

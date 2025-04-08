@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gherex.sistemarolesypermisos.gui.LoadNewUserController"
+            prefWidth="600" prefHeight="350"
+            style="-fx-padding: 20px">
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+    <top>
+        <Label text="Alta Usuarios"
+               BorderPane.alignment="CENTER"
+               style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    </top>
+    <center>
+        <GridPane hgap="10" vgap="15" alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <Label text="Nombre de Usuario:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Contraseña:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Repite Contraseña:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="repeatPasswordField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Rol:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="roleComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox spacing="20" alignment="CENTER_RIGHT" BorderPane.alignment="CENTER" style="-fx-padding: 20px 0 0 0">
+            <Button text="Limpiar" styleClass="btn-panel" onAction="#handleClear"/>
+            <Button text="Guardar" styleClass="btn-panel" onAction="#handleSave"/>
+        </HBox>
+    </bottom>
+</BorderPane>
