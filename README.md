@@ -1,4 +1,4 @@
-# 🐶 Sistema de Gestión de Mascotas
+# 🖥 Sistema de Gestión de Roles y Permisos
 
 ¡Bienvenido a mi proyecto de gestión de roles y permisos. Este software permite registrar y administrar información de usuarios.
 
