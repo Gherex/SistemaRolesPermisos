@@ -15,7 +15,7 @@ Nota: es muy simple, hecho para afianzar conocimientos en backend.
 ## 🗃️ Modelo de Base de Datos
 Este es el **Diagrama ER** del proyecto:
 
-![Diagrama ER](images/diagrama-ER.png)
+![Diagrama ER](images/diagramaER.png)
 
 ## 📷 Capturas de pantalla
 A continuación, algunas imágenes de la aplicación en funcionamiento:
